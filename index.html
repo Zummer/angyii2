@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <base href="/"/>
+    <meta charset="utf-8">
+    <meta name="fragment" content="!"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Angular App</title>
+
+    <script>paceOptions = {ajax: {trackMethods: ['GET', 'POST']}};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/red/pace-theme-minimal.css" rel="stylesheet" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="vendor/bower/angular/angular-csp.css">
+    <link rel="stylesheet" href="vendor/bower/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bower/angular-motion/dist/angular-motion.min.css">
+    <link rel="stylesheet" href="vendor/bower/angularjs-toaster/toaster.css">
+    <style>
+        .view-animate-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body ng-controller="MainController" class="ng-contloak" style="overflow-y: scroll">
+
+<!--[if lte IE 9]>
+<p class="browsehappy">
+    Похоже, вы используете <strong>устаревшую версию</strong> Internet Explorer. <a href="http://browsehappy.com/">Обновите
+    свой браузер</a>.
+</p>
+<![endif]-->
+
+<div class="navbar navbar-default" role="navigation" bs-navbar>
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">AppLogo</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <!--<li data-match-route="post/published"><a href="post/published">Post (Published)</a></li>-->
+            <!--<li data-match-route="post/draft"><a href="post/draft">Post (Draft)</a></li>-->
+            <li data-match-route="/about"><a href="/about">О нас</a></li>
+            <!--<li login></li>-->
+            <li data-match-route="/posts"><a href="/posts">Статьи</a></li>
+            <li data-match-route="/dashboard" ng-show="loggedIn()"><a href="/dashboard">Секрет</a></li>
+            <li ng-class="{active:isActive('/logout')}" ng-show="loggedIn()" ng-click="logout()" class="ng-hide">
+                <a href="">Выход ({{getUserName()}})</a></li>
+            <li data-match-route="/login" ng-hide="loggedIn()"><a href="/login">Вход</a></li>
+            <li data-match-route="/signup" ng-hide="loggedIn()"><a href="/signup">Регистрация</a></li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="container view-animate-container">
+    <div ng-view class="am-fade-and-slide-top">
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-right'}"></toaster-container>
+
+<script src="vendor/bower/angular/angular.js"></script>
+<!--<script src="vendor/bower/angular-i18n/angular-locale_ru.js"></script>-->
+<script src="vendor/bower/angular-route/angular-route.min.js"></script>
+<script src="vendor/bower/angular-resource/angular-resource.js"></script>
+<script src="vendor/bower/angular-sanitize/angular-sanitize.js"></script>
+<script src="vendor/bower/angular-animate/angular-animate.min.js"></script>
+<script src="vendor/bower/angularjs-toaster/toaster.js"></script>
+<script src="vendor/bower/angular-strap/dist/angular-strap.js"></script>
+<script src="vendor/bower/angular-strap/dist/angular-strap.tpl.min.js"></script>
+
+<script src="app.js"></script>
+<script src="controllers.js"></script>
+<script src="angularmodules/post/PostModule.js"></script>
+<script src="angularmodules/post/services/PostService.js"></script>
+<script src="angularmodules/post/controllers/PostCtrl.js"></script>
+
+</body>
+</html>

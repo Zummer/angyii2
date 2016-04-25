@@ -1,0 +1,14 @@
+# тоже хороший вариант, надо оставить, но не позволяет сохранять логи
+#RewriteEngine On
+#<IfModule mod_rewrite.c>
+#RewriteRule ^index\.html$ - [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /index.html [L]
+#</IfModule>
+
+# этот вариант позволяет сохранять логи
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.html
