@@ -9,7 +9,12 @@ PostModule.factory('RestFactory', ['$resource', '$rootScope', 'toaster', '$windo
            // expand при наличии превратиться в ?expand=
             var itemsResource = $resource(path + '/:id', {id: '@id', expand: '@expand'}, {
                 put: {
-                    method: 'PUT'
+                    method: 'POST',
+                    url: path + '/update/:id',
+                },
+                delete: {
+                    method: 'POST',
+                    url: path + '/delete/:id',
                 }
             });
 

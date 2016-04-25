@@ -53,13 +53,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            //
             'rules' => [
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => ['user', 'restpost'],
-//                    'pluralize' => false // отключаем S в конце слова
-                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['user', 'restpost'],], //'pluralize' => false // отключаем S в конце слова
+                'POST restposts/update/<id>' => 'restpost/update',
+                'POST restposts/delete/<id>' => 'restpost/delete',
             ],
         ],
         'errorHandler' => [

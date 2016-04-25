@@ -66,4 +66,15 @@ class RestpostController extends ActiveController
 //            }
 //        }
     }
+
+    public function verbs()
+    {
+        return [
+            'index' => ['GET', 'HEAD'],
+            'view' => ['GET', 'HEAD'],
+            'create' => ['POST'],
+            'update' => ['PUT', 'PATCH', 'POST'],
+            'delete' => ['DELETE', 'POST'],
+        ];
+    }
 }
