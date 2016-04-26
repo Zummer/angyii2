@@ -1,4 +1,4 @@
-AngularJS and Yii2 Part 2: Authentication
+AngularJS and Yii2
 ================================
 
 If you're planning on running these on your server don't forget to:
@@ -10,4 +10,3 @@ and initialize the environment
 php init
 ~~~
 
-The tutorial is located here [Neat Tutorials](http://blog.neattutorials.com/angularjs-and-yii2-part-2-authentication/)

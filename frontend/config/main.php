@@ -54,9 +54,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => ['user', 'restpost'],], //'pluralize' => false // отключаем S в конце слова
-                'POST restposts/update/<id>' => 'restpost/update',
-                'POST restposts/delete/<id>' => 'restpost/delete',
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['user', 'post'],], //'pluralize' => false // отключаем S в конце слова
+                'POST posts/update/<id>' => 'post/update',
+                'POST posts/delete/<id>' => 'post/delete',
             ],
         ],
         'errorHandler' => [

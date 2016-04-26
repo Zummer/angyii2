@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\filters\auth\HttpBearerAuth;
 use yii\rest\ActiveController;
 
-class RestpostController extends ActiveController
+class PostController extends ActiveController
 {
     public $modelClass = 'common\models\Post';
 
@@ -54,11 +54,11 @@ class RestpostController extends ActiveController
                 throw new ForbiddenHttpException('Редактирование запрещено!');
             }
         }
-//        if ($action == 'delete') {
-//            if (!Yii::$app->user->can('deletePost', ['post' => $model])) {
-//                throw new ForbiddenHttpException('Удаление запрещено');
-//            }
-//        }
+        if ($action == 'delete') {
+            if (!Yii::$app->user->can('deletePost', ['post' => $model])) {
+                throw new ForbiddenHttpException('Удаление запрещено');
+            }
+        }
 
 //        if ($action == 'view') {
 //            if (!Yii::$app->user->can('viewPost', ['post' => $model])) {

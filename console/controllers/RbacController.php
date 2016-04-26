@@ -29,18 +29,22 @@ class RbacController extends Controller
     {
         $auth = Yii::$app->authManager;
         $auth->removeAll();
-
+        // Create Post
         $createPost = $auth->createPermission('createPost');
         $createPost->description = 'Create a post';
         $auth->add($createPost);
-
+        // Update Post
         $updatePost = $auth->createPermission('updatePost');
         $updatePost->description = 'Update that post';
         $auth->add($updatePost);
-
+        // Read/View Post
         $viewPost = $auth->createPermission('viewPost');
         $viewPost->description = 'View that post';
         $auth->add($viewPost);
+        // Delete Post
+        $deletePost = $auth->createPermission('deletePost');
+        $deletePost->description = 'Delete that post';
+        $auth->add($deletePost);
 
         $authorRule = new AuthorRule();
         $auth->add($authorRule);
@@ -72,8 +76,11 @@ class RbacController extends Controller
         $auth->addChild($admin, $user);
         $auth->addChild($admin, $viewPost);
         $auth->addChild($admin, $updatePost);
+        $auth->addChild($admin, $deletePost);
 
         $this->stdout('RBAC создан!' . PHP_EOL);
+
+        $this->actionAssign();
     }
 
     public function actionAssign()
@@ -121,17 +128,17 @@ class RbacController extends Controller
 
         echo PHP_EOL;
 
-/*        echo 'New roles for user: ' . PHP_EOL;
-        print_r(implode(', ', ArrayHelper::map($auth->getRolesByUser($user->id),'name','name')));
-        echo PHP_EOL;
-        print_r(ArrayHelper::map($auth->getRolesByUser($user->id),'name','name'));
-        echo PHP_EOL;
+        /*        echo 'New roles for user: ' . PHP_EOL;
+                print_r(implode(', ', ArrayHelper::map($auth->getRolesByUser($user->id),'name','name')));
+                echo PHP_EOL;
+                print_r(ArrayHelper::map($auth->getRolesByUser($user->id),'name','name'));
+                echo PHP_EOL;
 
-        Yii::$app->user->login($user);
-        var_dump(Yii::$app->user->can('admin'));
-        Yii::$app->user->login($admin);
-        var_dump(Yii::$app->user->can('admin'));
-*/
+                Yii::$app->user->login($user);
+                var_dump(Yii::$app->user->can('admin'));
+                Yii::$app->user->login($admin);
+                var_dump(Yii::$app->user->can('admin'));
+        */
     }
 
     public function show($message, $value)

@@ -24,7 +24,7 @@ class AppAsset extends AssetBundle
 //        'js/app.js',
 //        'js/controllers.js',
 //        'js/angularmodules/post/PostModule.js',
-//        'js/angularmodules/post/services/PostService.js',
+//        'js/angularmodules/post/services/RestService.js',
 //        'js/angularmodules/post/controllers/PostCtrl.js',
     ];
     public $depends = [
